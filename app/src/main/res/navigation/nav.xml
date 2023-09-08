@@ -9,5 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="com.example.todo.screen.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_taskInfoFragment"
+            app:destination="@id/taskInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/taskInfoFragment"
+        android:name="com.example.todo.screen.TaskInfoFragment"
+        android:label="fragment_task_info"
+        tools:layout="@layout/fragment_task_info" >
+        <action
+            android:id="@+id/action_taskInfoFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
