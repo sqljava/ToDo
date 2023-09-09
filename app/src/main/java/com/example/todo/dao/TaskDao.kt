@@ -10,14 +10,14 @@ import com.example.todo.entities.Task
 @Dao
 interface TaskDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addTask(task: Task)
+    @Insert
+    fun addTask(task: Task)
 
-    @Query("SELECT * FROM task")
-    fun showAllTasks()
+    @Query("SELECT * FROM tasks")
+    fun showAllTasks():MutableList<Task>
 
-    @Query("SELECT * FROM task WHERE ID= :id")
-    fun showTask(id: Int)
+    @Query("SELECT * FROM tasks WHERE ID= :id")
+    fun showTask(id: Int):Task
 
 
 
