@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screen.TaskInfoFragment"
+    tools:context=".screen.EditTaskFragment"
     android:orientation="vertical">
 
     <ScrollView
@@ -26,10 +26,11 @@
                 android:textColor="@color/black"/>
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/task_info_title"
+                android:id="@+id/edit_task_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter title"
+                android:hint="Edit title"
+                android:text=""
                 android:layout_marginTop="20dp"
                 android:background="@drawable/input_bg"
                 android:padding="10dp"
@@ -45,10 +46,10 @@
                 android:layout_marginTop="50dp"/>
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/task_info_text"
+                android:id="@+id/edit_task_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Write something\n\n\n\n\n\n\n\n\n"
+                android:hint="Write something"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/input_bg"
                 android:padding="10dp"/>
@@ -66,13 +67,14 @@
         android:gravity="center">
 
         <Button
-            android:id="@+id/btn_save"
+            android:id="@+id/btn_edit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
+            android:text="Edit"
             android:textSize="25sp"/>
 
 
     </RelativeLayout>
+
 
 </LinearLayout>

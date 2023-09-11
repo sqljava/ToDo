@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.todo.R
 import com.example.todo.database.AppDataBase
-import com.example.todo.databinding.FragmentTaskInfoBinding
+import com.example.todo.databinding.FragmentAddTaskBinding
 import com.example.todo.entities.Task
 
-class TaskInfoFragment : Fragment() {
-    lateinit var binding: FragmentTaskInfoBinding
+class AddTaskFragment : Fragment() {
+    lateinit var binding: FragmentAddTaskBinding
     private var taskTitle : String = ""
     private var taskText : String = ""
 
@@ -23,16 +23,7 @@ class TaskInfoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentTaskInfoBinding.inflate(inflater, container, false)
-
-        var args = this.arguments
-        var input = args?.getInt("task_id")
-
-
-
-        //binding.taskInfoTitle.text = input?.toString()
-
-
+        binding = FragmentAddTaskBinding.inflate(inflater, container, false)
 
 
 
@@ -40,11 +31,15 @@ class TaskInfoFragment : Fragment() {
             taskTitle = binding.taskInfoTitle.text.toString()
             taskText = binding.taskInfoText.text.toString()
 
-            appDataBase.getTaskDao().addTask(Task(
-                title = taskTitle,
-                text = taskText))
+            if (taskTitle!= "" && taskText!=""){
 
-            findNavController().navigate(R.id.action_taskInfoFragment_to_homeFragment)
+                appDataBase.getTaskDao().addTask(Task(
+                    title = taskTitle,
+                    text = taskText))
+
+                parentFragmentManager.beginTransaction().
+                replace(R.id.main_screen, HomeFragment()).commit()
+            }
         }
         return binding.root
     }

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -12,7 +13,6 @@ import com.example.todo.R
 import com.example.todo.adapter.TaskAdapter
 import com.example.todo.database.AppDataBase
 import com.example.todo.databinding.FragmentHomeBinding
-import com.example.todo.databinding.TaskItemBinding
 import com.example.todo.entities.Task
 
 class HomeFragment : Fragment() {
@@ -37,23 +37,27 @@ class HomeFragment : Fragment() {
 
         val adapter = TaskAdapter(taskList, object :TaskAdapter.TaskInterface{
             override fun onClick(task: Task) {
-                val bundle = Bundle()
-                bundle.putInt("task_id", task.id)
-                var fragment = TaskInfoFragment()
-                fragment.arguments = bundle
+
                 parentFragmentManager.beginTransaction().
-                replace(R.id.fragmentContainerView, fragment)
+                replace(R.id.main_screen, EditTaskFragment.newInstance(task.id)).addToBackStack("HomeFragment").commit()
+                Toast.makeText(requireContext(), task.id.toString(), Toast.LENGTH_LONG)
+
 
             }
 
         })
+
+        adapter.notifyDataSetChanged()
+
         binding.homeRec.adapter = adapter
 
         var manager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL,false)
         binding.homeRec.layoutManager = manager
 
         binding.btnAdd.setOnClickListener{
-            findNavController().navigate(R.id.action_homeFragment_to_taskInfoFragment)
+            parentFragmentManager.beginTransaction().
+            replace(R.id.main_screen, AddTaskFragment()).addToBackStack("HomeFragment").commit()
+
         }
         return binding.root
     }
