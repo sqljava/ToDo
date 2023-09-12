@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.todo.R
 import com.example.todo.database.AppDataBase
@@ -39,6 +40,9 @@ class AddTaskFragment : Fragment() {
 
                 parentFragmentManager.beginTransaction().
                 replace(R.id.main_screen, HomeFragment()).commit()
+            }else{
+                Toast.makeText(requireContext(),
+                "Fill fields, please", Toast.LENGTH_SHORT).show()
             }
         }
         return binding.root

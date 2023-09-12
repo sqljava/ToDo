@@ -40,14 +40,14 @@ class HomeFragment : Fragment() {
 
                 parentFragmentManager.beginTransaction().
                 replace(R.id.main_screen, EditTaskFragment.newInstance(task.id)).addToBackStack("HomeFragment").commit()
-                Toast.makeText(requireContext(), task.id.toString(), Toast.LENGTH_LONG)
+                //Toast.makeText(requireContext(), task.id.toString(), Toast.LENGTH_LONG)
 
 
             }
 
         })
 
-        adapter.notifyDataSetChanged()
+        //adapter.notifyDataSetChanged()
 
         binding.homeRec.adapter = adapter
 
