@@ -45,6 +45,17 @@ class AddTaskFragment : Fragment() {
                 "Fill fields, please", Toast.LENGTH_SHORT).show()
             }
         }
+
+        binding.btnCamera.setOnClickListener {
+            Toast.makeText(requireContext(),
+                "Camera pressed", Toast.LENGTH_SHORT).show()
+        }
+
+        binding.btnFromMemory.setOnClickListener {
+            Toast.makeText(requireContext(),
+                "Memory pressed", Toast.LENGTH_SHORT).show()
+        }
+
         return binding.root
     }
 }

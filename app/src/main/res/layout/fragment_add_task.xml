@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screen.AddTaskFragment"
     android:orientation="vertical">
 
@@ -62,16 +63,72 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="center">
+        android:layout_weight="1">
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:text="Add"
-            android:textSize="25sp"
-            android:backgroundTint="#57CD5C"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btn_save"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="Add"
+                    android:textSize="25sp"
+                    android:backgroundTint="#57CD5C"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_camera"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:backgroundTint="#2196F3"
+                    app:icon="@drawable/camera"
+                    app:iconSize="30dp"
+                    android:textSize="25sp" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_from_memory"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    app:icon="@drawable/sd_card"
+                    app:iconSize="30dp"
+                    android:backgroundTint="#F44336"/>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
 
 
     </RelativeLayout>

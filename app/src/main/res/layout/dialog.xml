@@ -5,8 +5,7 @@
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center">
-
-
+    
     <androidx.cardview.widget.CardView
         app:cardCornerRadius="20dp"
         android:layout_width="match_parent"
@@ -51,7 +50,6 @@
                     android:textSize="20sp"
                     android:layout_marginEnd="5dp"/>
 
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_no"
                     app:cornerRadius="10dp"
@@ -63,15 +61,9 @@
                     android:layout_marginStart="5dp"
                     android:textSize="20sp"/>
 
-
-
-
             </LinearLayout>
 
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     </androidx.cardview.widget.CardView>
 
