@@ -55,15 +55,18 @@ class EditTaskFragment : Fragment() {
             var title = binding.editTaskTitle.text.toString()
             var text = binding.editTaskText.text.toString()
 
-            task.text = text
-            task.title = title
+            if (task.title==title && task.text==text){
+                Toast.makeText(requireContext(), "Task not edited", Toast.LENGTH_LONG).show()
+            }else{
+                task.text = text
+                task.title = title
 
-            appDataBase.getTaskDao().updateTask(task)
+                appDataBase.getTaskDao().updateTask(task)
 
-            Toast.makeText(requireContext(), "Task edited", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Task edited", Toast.LENGTH_LONG).show()
 
-            parentFragmentManager.beginTransaction().replace(R.id.main_screen, HomeFragment()).commit()
-
+                parentFragmentManager.beginTransaction().replace(R.id.main_screen, HomeFragment()).commit()
+            }
         }
 
         var dialog = Dialog(requireContext())
@@ -76,6 +79,7 @@ class EditTaskFragment : Fragment() {
             dialog.setContentView(dialodView)
 
             dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            binding.linearParentDialog.setBackgroundColor(Color.GRAY)
 
             dialog.show()
 
@@ -87,10 +91,12 @@ class EditTaskFragment : Fragment() {
                 parentFragmentManager.beginTransaction().
                 replace(R.id.main_screen, HomeFragment()).commit()
                 dialog.hide()
+                binding.linearParentDialog.setBackgroundColor(Color.TRANSPARENT)
             }
 
             btnNo.setOnClickListener {
                 dialog.hide()
+                binding.linearParentDialog.setBackgroundColor(Color.TRANSPARENT)
             }
 
         }

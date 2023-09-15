@@ -39,15 +39,12 @@ class HomeFragment : Fragment() {
             override fun onClick(task: Task) {
 
                 parentFragmentManager.beginTransaction().
-                replace(R.id.main_screen, EditTaskFragment.newInstance(task.id)).addToBackStack("HomeFragment").commit()
-                //Toast.makeText(requireContext(), task.id.toString(), Toast.LENGTH_LONG)
-
+                replace(R.id.main_screen, EditTaskFragment.newInstance(task.id)).
+                addToBackStack("HomeFragment").commit()
 
             }
 
         })
-
-        //adapter.notifyDataSetChanged()
 
         binding.homeRec.adapter = adapter
 
