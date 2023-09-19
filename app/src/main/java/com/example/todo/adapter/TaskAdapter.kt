@@ -1,5 +1,6 @@
 package com.example.todo.adapter
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,7 @@ class TaskAdapter(
         var title = binding.taskItemTitle
         var text = binding.taskItemText
         var main = binding.taskItemMain
+        var photo = binding.taskItemImg
 
     }
 
@@ -31,6 +33,7 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: TaskHolder, position: Int) {
         holder.title.text = list[position].title
         holder.text.text = list[position].text
+        holder.photo.setImageURI(Uri.parse(list[position].filePath))
 
         holder.main.setOnClickListener {
             taskInterface.onClick(list[position])

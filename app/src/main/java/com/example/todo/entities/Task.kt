@@ -10,5 +10,6 @@ data class Task(
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0,
     var title: String,
-    var text: String
+    var text: String,
+    var filePath:String
 )
