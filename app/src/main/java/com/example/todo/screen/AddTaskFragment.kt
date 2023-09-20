@@ -102,7 +102,6 @@ class AddTaskFragment : Fragment() {
             currentFilePath = absolutePath
         }
     }
-
     private fun dispatchTakePictureIntent() {
         val photoFile: File? = try {
             createImageFile()
@@ -113,13 +112,12 @@ class AddTaskFragment : Fragment() {
         photoFile?.let {
             val photoURI: Uri = FileProvider.getUriForFile(
                 requireContext(),
-                "com.example.todo",
+                "package com.example.todo",
                 it
             )
             takePhotoResultCamera.launch(photoURI)
         }
     }
-
     val takePhotoResultCamera = registerForActivityResult(ActivityResultContracts.TakePicture()) {
         if (it) {
             img.setImageURI(Uri.fromFile(File(currentFilePath)))

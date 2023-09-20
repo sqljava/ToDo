@@ -10,7 +10,7 @@ import kotlinx.coroutines.internal.synchronized
 
 
 
-@Database(entities = [Task::class], version = 1)
+@Database(entities = [Task::class], version = 3)
 abstract class AppDataBase():RoomDatabase(){
 
     abstract fun getTaskDao(): TaskDao
