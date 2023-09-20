@@ -3,6 +3,7 @@ package com.example.todo.screen
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -101,7 +102,7 @@ class EditTaskFragment : Fragment() {
 
         }
 
-
+        binding.imgEditFrag.setImageURI(Uri.parse(task.filePath))
 
         return binding.root
     }
