@@ -4,6 +4,7 @@ import android.net.Uri
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todo.R
 import com.example.todo.databinding.TaskItemBinding
 import com.example.todo.entities.Task
 
@@ -33,8 +34,9 @@ class TaskAdapter(
     override fun onBindViewHolder(holder: TaskHolder, position: Int) {
         holder.title.text = list[position].title
         holder.text.text = list[position].text
-        holder.photo.setImageURI(Uri.parse(list[position].filePath))
-
+        if(list[position].filePath != ""){
+            holder.photo.setImageURI(Uri.parse(list[position].filePath))
+        }
         holder.main.setOnClickListener {
             taskInterface.onClick(list[position])
         }

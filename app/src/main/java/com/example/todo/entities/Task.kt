@@ -11,5 +11,5 @@ data class Task(
     var id: Int = 0,
     var title: String,
     var text: String,
-    var filePath:String
+    var filePath:String = ""
 )

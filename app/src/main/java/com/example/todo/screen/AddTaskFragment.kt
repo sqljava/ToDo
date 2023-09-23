@@ -28,7 +28,7 @@ class AddTaskFragment : Fragment() {
     lateinit var binding: FragmentAddTaskBinding
     private var taskTitle : String = ""
     private var taskText : String = ""
-    private lateinit var currentFilePath: String
+    var currentFilePath: String = ""
     private lateinit var img: ImageView
 
     val appDataBase: AppDataBase by lazy {
